@@ -390,6 +390,7 @@ def testUni(net1, criterion, CUDA_DEVICE, testloader10, testloader, nnName, data
 
         if j== N-1: break
 
+# maybe randomly corrupt the in-distribution data and test it
 # def testTry(net1, criterion, CUDA_DEVICE, testloader10, testloader, nnName, dataName, noiseMagnitude1, temper):
 #     t0 = time.time()
 #     f1 = open("./softmax_scores/confidence_Base_In.txt", 'w')
@@ -461,6 +462,8 @@ def testUni(net1, criterion, CUDA_DEVICE, testloader10, testloader, nnName, data
 #         # images[0][0] = (images[0][0] - 125.3/255) / (63.0/255)
 #         # images[0][1] = (images[0][1] - 123.0/255) / (62.1/255)
 #         # images[0][2] = (images[0][2] - 113.9/255) / (66.7/255)
+
+#         images, _ = data
         
 #         transform=transforms.RandomApply([transforms.RandomSizedCrop(32),transforms.RandomHorizontalFlip()],p=0.6)
 #         images[0]=transform(images[0])
@@ -511,12 +514,5 @@ def testUni(net1, criterion, CUDA_DEVICE, testloader10, testloader, nnName, data
 #             t0 = time.time()
 
 #         if j== N-1: break
-
-
-
-
-
-
-
 
 
