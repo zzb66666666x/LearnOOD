@@ -20,6 +20,8 @@ class OELoss(nn.Module):
     def forward(self, x, y):
         return -(x.mean(1) - torch.logsumexp(x, dim=1)).mean()
 
+# class referenced by eval.py, robust_ood_train.py 
+# this is more like general form of attack, we can perturb by both input and label
 class LinfPGDAttack:
     """
     PGD Attack with order=Linf

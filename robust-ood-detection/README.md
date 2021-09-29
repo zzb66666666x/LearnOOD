@@ -84,3 +84,11 @@ Please cite our work if you use the codebase:
 
 ### License
 Please refer to the [LICENSE](LICENSE).
+
+## Notes added by reader zhongbo2@illinois.edu
+### About project strcuture
+- For this project, the `CIFAR` and `GTSRB` folders are like the "main folders", each represent different in-distribution dataset.
+- The "main folders" of the project do things like training models, evaluate models and make comparisons between ALOE and classic OOD-detection methods like ODIN.
+- In the `utils` folder, class `ConfidenceLinfPGDAttack` and class `MahalanobisLinfPGDAttack` are used by `eval_ood_detection.py` in the folder CIFAR or GTSRB, while the class `LinfPGDAttack` is used by `robust_ood_train.py` and `eval.py` in the "main folders". 
+
+

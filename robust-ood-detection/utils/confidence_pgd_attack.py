@@ -13,6 +13,11 @@ import time
 import os
 from scipy import misc
 
+## NOTE MADE BY ZZB
+# this file is the attach method for models using softmax
+# check out algorithm in paper: 
+# Algorithm 1 Adversarial attack on OOD detectors based on softmax confidence score
+
 class HLoss(nn.Module):
     def __init__(self):
         super(HLoss, self).__init__()
@@ -29,6 +34,7 @@ class OELoss(nn.Module):
     def forward(self, x):
         return -(x.mean(1) - torch.logsumexp(x, dim=1)).mean()
 
+# class referenced by eval_ood_detection.py
 class ConfidenceLinfPGDAttack:
     """
     PGD Attack with order=Linf

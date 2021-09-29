@@ -13,6 +13,12 @@ import time
 import os
 from scipy import misc
 
+## NOTE MADE BY ZZB
+# this file is the attach method for models using Mahalanobis
+# check out algorithm in paper: 
+# Algorithm 2 Adversarial attack on OOD detector using Mahalanobis distance based confidence
+
+# class referenced by eval_ood_detection.py
 class MahalanobisLinfPGDAttack:
     """
     PGD Attack with order=Linf
