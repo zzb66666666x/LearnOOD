@@ -117,6 +117,7 @@ class DenseNet3(nn.Module):
                 m.bias.data.zero_()
 
     def forward(self, x):
+        print("type of x: ", type(x))
         if self.normalizer is not None:
             x = x.clone()
             for idx, inp in enumerate(x):
