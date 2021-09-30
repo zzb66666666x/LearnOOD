@@ -117,15 +117,13 @@ class DenseNet3(nn.Module):
                 m.bias.data.zero_()
 
     def forward(self, x):
-        print("type of x: ", type(x))
+        # print("type of x: ", type(x))
         if self.normalizer is not None:
+            tmp = x.clone
             x = x.clone()
-            for idx, inp in enumerate(x.clone()):
-                print("before")
+            for idx, inp in enumerate(tmp):
                 x[idx] = self.normalizer(inp)
-                print("after")
             x = x.cuda()
-        print("finish")
         out = self.conv1(x)
         out = self.trans1(self.block1(out))
         out = self.trans2(self.block2(out))
