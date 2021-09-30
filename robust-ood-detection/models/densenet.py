@@ -120,7 +120,9 @@ class DenseNet3(nn.Module):
         if self.normalizer is not None:
             x = x.clone()
             for idx, inp in enumerate(x):
+                print("before")
                 x[idx] = self.normalizer(inp)
+                print("after")
             x = x.cuda()
 
         out = self.conv1(x)
