@@ -246,6 +246,7 @@ def train(train_loader, model, criterion, optimizer, scheduler, epoch, attack_in
 
     end = time.time()
     for i, (input, target) in enumerate(train_loader):
+        print("training training training")
         target = target.cuda()
 
         nat_input = input.detach().clone()
@@ -278,8 +279,10 @@ def train(train_loader, model, criterion, optimizer, scheduler, epoch, attack_in
                           epoch, i, len(train_loader), batch_time=batch_time,
                           loss=nat_losses, top1=nat_top1))
         else:
+            print("ready to attack")
             adv_input = attack_in.perturb(input, target)
             adv_output = model(adv_input)
+            print("calculated attack output")
             adv_loss = criterion(adv_output, target)
 
             # measure accuracy and record loss
