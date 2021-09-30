@@ -281,6 +281,7 @@ def train(train_loader, model, criterion, optimizer, scheduler, epoch, attack_in
         else:
             print("ready to attack")
             adv_input = attack_in.perturb(input, target)
+            print("calculated perturbed input")
             adv_output = model(adv_input)
             print("calculated attack output")
             adv_loss = criterion(adv_output, target)

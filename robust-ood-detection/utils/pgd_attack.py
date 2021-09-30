@@ -70,7 +70,7 @@ class LinfPGDAttack:
                   - if self.targeted=True, then y must be the targeted labels.
         :return: tensor containing perturbed inputs.
         """
-
+        print("perturbing data")
         x = x.detach().clone()
         if y is not None:
             y = y.detach().clone()
@@ -86,10 +86,11 @@ class LinfPGDAttack:
             delta.data = (torch.clamp(x.data + delta.data / 255.0, min=self.clip_min, max=self.clip_max) - x.data) * 255.0
 
         for ii in range(self.nb_iter):
+            print("finding out the perturbation")
             adv_x = x + delta / 255.0
             if y is not None:
                 y = y.cuda()
-
+            print("begin to calculate forward pass for adverserial input")
             outputs = self.model(adv_x)
             loss = self.loss_func(outputs, y)
 
