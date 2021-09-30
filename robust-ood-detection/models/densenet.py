@@ -120,7 +120,7 @@ class DenseNet3(nn.Module):
         print("type of x: ", type(x))
         if self.normalizer is not None:
             x = x.clone()
-            for idx, inp in enumerate(x):
+            for idx, inp in enumerate(x.clone()):
                 print("before")
                 x[idx] = self.normalizer(inp)
                 print("after")
