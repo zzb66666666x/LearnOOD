@@ -1,4 +1,4 @@
-# Paper
+# Papers
 
 odin: [[1706.02690\] Enhancing The Reliability of Out-of-distribution Image Detection in Neural Networks (arxiv.org)](https://arxiv.org/abs/1706.02690)
 
